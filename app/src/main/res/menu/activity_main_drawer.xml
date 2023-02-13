@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_main"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="@string/menu_main" />
+        <item
+            android:id="@+id/nav_drivers"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="@string/drivers" />
+        <item
+            android:id="@+id/nav_trains"
+            android:icon="@android:drawable/ic_menu_sort_alphabetically"
+            android:title="@string/menu_direction" />
+        <item
+            android:id="@+id/nav_schedule_all_drivers"
+            android:icon="@android:drawable/ic_menu_info_details"
+            android:title="@string/menu_schedule_all_drivers" />
+    </group>
+</menu>
