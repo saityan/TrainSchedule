@@ -1,21 +1,16 @@
-# WorkSchedule
-Рабочий график машинистов и оперативного персонала
-## Для чего?
-* Для автоматического формирования графика работы персонала.
-* Обеспечивает равномерность распределения рабочих смен.
-* Отображает график всего персонала на 1 месяц
+# Goal
+This app was created as a side project to help train drivers with their schedule.
 
-### Как пользоваться?
-1. Добавить имеющиеся участки обслуживания во вкладке "Направления"
-2. Добавить персонал во вкладке "Машинисты" с отмеченными допусками к участкам обслуживания (хотя бы 1 допуск для каждого работника)
-3. Добавить во вкладке "Расписание выездов" информацию о рабочей смене:
-  - время отправления поезда (начала смены)
-  - номер поезда (другой уникальный номер)
-  - название участка обслуживания
-  - в графе "Машинист" оставить "Автоматически", или выбрать из списка
-  - указать повторяемость поездок (смен): одиночный/ по чётным/ по нечётным/ ежедневно
-  - время в пути туда (время смены)
-  - время отдыха (перерыв)
-  - время в пути обратно (время смены после перерыва)
-  - Сохранить 
- 4. График работы создан
+## How does it work
+The app uses specific algorithm to create shift schedule for a station.
+
+## Input
+For a working schedule, the user needs to manually add drivers and routes his station has.
+There's a demonstration data, which can be created via "Fill DB for demostration" menu option.
+Similarly, this demonstration data can be deleted using "Clear DB" option from the same menu.
+
+## Output
+A working schedule for a month, with constraints (here's some of them):
+- time period between jobs should be no less than 16 hours for a driver;
+- a driver can't work during night hours more than 2 days in a row;
+- if a driver becomes unavailable, the algorithm should keep changes in the schedule to a minimum;
