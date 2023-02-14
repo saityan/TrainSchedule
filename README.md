@@ -6,7 +6,7 @@ The app uses specific algorithm to create shift schedule for a station.
 
 ## Input
 For a working schedule, the user needs to manually add drivers and routes his station has.
-There's a demonstration data, which can be created via "Fill DB for demostration" menu option.
+There's a demonstration data, which can be created via "Fill DB for demonstration" menu option.
 Similarly, this demonstration data can be deleted using "Clear DB" option from the same menu.
 
 ## Output
