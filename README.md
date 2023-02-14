@@ -16,4 +16,4 @@ A working schedule for a month, with constraints (here's some of them):
 - if a driver becomes unavailable, the algorithm should keep changes in the schedule to a minimum;
 
 ## Important note
-The app doesn't log the schedule state at any given time. Isntead, it always tries to keep the schedule as optimal as possbile, since the purpose is to save an operator the headache to arrange everything manually. A separate log should always be used for documenting past routes.
+The app doesn't log the schedule state at any given time. Isntead, it always tries to keep the schedule as optimal as possbile, since the purpose is to save an operator the headache to arrange everything manually. A separate log should always be used for the past routes documenting.
