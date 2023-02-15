@@ -14,6 +14,7 @@ import com.example.workschedule.data.database.trainrun.TrainRunEntity
     version = 1,
     exportSchema = false
 )
+
 abstract class ScheduleDataBase : RoomDatabase() {
     abstract fun driverDao(): DriverDao
     abstract fun trainDao(): TrainDao

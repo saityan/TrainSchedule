@@ -5,24 +5,34 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
+/**
+ * Database contract for drivers
+ */
+
 @Dao
 interface DriverDao {
-    // Получить весь список машинистов
+
+    /** Get drivers list */
     @Query("SELECT * FROM DriverEntity ORDER BY surname")
     suspend fun getAllDrivers(): List<DriverEntity>
-    // Получить машиниста по id
+
+    /** Get driver by id */
     @Query("SELECT * FROM DriverEntity WHERE id LIKE :driverId")
     suspend fun getDriverById(driverId: Int): DriverEntity
-    // Сохранить нового или изменить машиниста
+
+    /** Edit or add driver */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveDriver(driver: DriverEntity)
-    // Сохранить список машинистов
+
+    /** Save driver's list */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveDriverList(driverList: List<DriverEntity>)
-    // Удалить машиниста
+
+    /** Delete driver */
     @Query("DELETE FROM DriverEntity WHERE id = :driverId")
     suspend fun deleteDriverById(driverId: Int)
-    // Удалить всех машинистов
+
+    /** Delete all drivers */
     @Query("DELETE FROM DriverEntity")
     suspend fun deleteAllDrivers()
 }

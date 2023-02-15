@@ -79,4 +79,3 @@ val application = module {
         )
     }
 }
-

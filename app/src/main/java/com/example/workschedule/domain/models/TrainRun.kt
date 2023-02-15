@@ -3,21 +3,21 @@ package com.example.workschedule.domain.models
 import java.time.LocalDateTime
 
 /**
- * Класс TrainRun определяет сущность поездки(рейса), необходима для составления сетки выездов и
- * заполнения данными о времени, машинистах, и других данных.
+ * Route entity
  *
- * @param id идентификатор поезда в сетке выездов
- * @param trainId ID поезда
- * @param trainNumber номер поезда
- * @param trainDirection направление поезда
- * @param trainPeriodicity периодичность поезда
- * @param driverId Id машиниста
- * @param driverName ФИО машиниста
- * @param startTime время отправления
- * @param travelTime время пути в пункт назначения
- * @param travelRestTime время отдыха перед отправлением обратно
- * @param backTravelTime время пути обратно в пункт отправления
+ * @param id
+ * @param trainId
+ * @param trainNumber
+ * @param trainDirection
+ * @param trainPeriodicity
+ * @param driverId
+ * @param driverName
+ * @param startTime departure time
+ * @param travelTime time from departure to arrival
+ * @param travelRestTime rest time for a driver
+ * @param backTravelTime time to travel back (rest time stays the same)
  */
+
 data class TrainRun(
     val id: Int,
     val trainId: Int,

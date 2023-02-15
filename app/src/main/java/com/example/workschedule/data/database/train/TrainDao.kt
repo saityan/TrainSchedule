@@ -1,27 +1,34 @@
 package com.example.workschedule.data.database.train
 
-
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
+/**
+ * Database contract for trains
+ */
 
 @Dao
 interface TrainDao {
-//    Получить все поезда
+
+    /** Get trains list */
     @Query("SELECT * FROM TrainEntity ORDER BY direction")
     suspend fun getAllTrains(): List<TrainEntity>
-//    Получить поезд по номеру
+
+    /** Get train by number */
     @Query("SELECT * FROM TrainEntity WHERE id LIKE :trainId")
     suspend fun getTrainById(trainId: Int): TrainEntity
-//    добавить новый поезд / изменить
+
+    /** Edit or add a train */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveTrain(train: TrainEntity)
-//    Удалить поезд
+
+    /** Delete train */
     @Query("DELETE FROM TrainEntity WHERE id = :trainId")
     suspend fun deleteTrainById(trainId: Int)
-    //    Удалить все поезда
+
+    //Delete all trains
     @Query("DELETE FROM TrainEntity")
     suspend fun deleteAllTrains()
 }

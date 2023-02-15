@@ -1,11 +1,12 @@
 package com.example.workschedule.domain.models
 
 /**
- * Класс Train определяет сущность поезда, необходимую для идентификации направления и вывода информации о нём.
+ * Train entity
  *
- * @param id ID записи поезда
- * @param direction название направления
+ * @param id
+ * @param direction
  */
+
 data class Train(
     val id: Int,
     val direction: String,
