@@ -42,7 +42,7 @@
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@id/driversFragmentNameGuideline"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Иванов A. А." />
+                tools:text="Summerwoods A. А." />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/driversFragmentRecyclerItemHours"

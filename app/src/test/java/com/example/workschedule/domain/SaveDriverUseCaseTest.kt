@@ -23,9 +23,9 @@ class SaveDriverUseCaseTest {
         val driver = Driver(
             id = 0,
             personnelNumber = 15,
-            surname = "Иванов",
-            name = "Иван",
-            patronymic = "Иванович",
+            surname = "Summerwoods",
+            name = "Elpos",
+            patronymic = "Summerwoodsич",
             workedTime = 5,
             totalTime = 10,
             accessTrainsId = listOf(1, 4, 2)

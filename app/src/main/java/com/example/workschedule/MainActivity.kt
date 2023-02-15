@@ -16,7 +16,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.workschedule.data.database.ScheduleDataBase
 import com.example.workschedule.databinding.ActivityMainBinding
 import com.example.workschedule.domain.clearDatabase
-import com.example.workschedule.domain.saveFakeDataToDB
+import com.example.workschedule.domain.saveDemonstrationDataToDB
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_fill_db_for_demonstration -> {
-                actionWithDatabase(R.string.dataAdded) { saveFakeDataToDB(it) }
+                actionWithDatabase(R.string.dataAdded) { saveDemonstrationDataToDB(it) }
             }
             R.id.action_clear_db -> {
                 actionWithDatabase(R.string.dataDeleted) { clearDatabase(it) }

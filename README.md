@@ -12,8 +12,8 @@ Similarly, this demonstration data can be deleted using "Clear DB" option from t
 ## Output
 A working schedule for a month, with constraints (here's some of them):
 - time period between jobs should be no less than 16 hours for a driver;
-- a driver can't work during night hours more than 2 days in a row;
-- if a driver becomes unavailable, the algorithm should keep changes in the schedule to a minimum;
+- a driver can't do night shifts two times in a row;
+- if a driver became unavailable, the algorithm should keep schedule changes to a minimum;
 
 ## Important note
-The app doesn't log the schedule state at any given time. Isntead, it always tries to keep the schedule as optimal as possbile, since the purpose is to save an operator the headache to arrange everything manually. A separate log should always be used for the past routes documenting.
+The app doesn't log the schedule state at any given time. Instead, it always tries to keep the schedule as optimal as possible, since the purpose is to save an operator the headache to arrange everything manually. A separate log should always be used for the past routes documenting.
