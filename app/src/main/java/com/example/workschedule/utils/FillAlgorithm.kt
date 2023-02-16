@@ -7,22 +7,20 @@ import com.example.workschedule.domain.secondNightWorkBan
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
-/*
- * Метод для выборки из списка выезда поездов машинистов (в определенное время) и возврат списка Id тех машинистов,
- * которые в рейсе или на отдыхе после рейса. Т.е. списка тех кого нельзя ставить на новый выезд в
- * определенное время.
+/**
+ * Returns collection of drivers who can't be put on the next train
  */
 fun getBusyOrRestDriversIdsOnTime(trainRunList: List<TrainRun>, time: LocalDateTime) = trainRunList
-    .filter { it.driverId > 0 } // Отсеиваем записи в которых машинисты еще не назначены
+    .filter { it.driverId > 0 }
     .filter {
         time >= it.startTime && time <= it.startTime.plus(
             it.travelTime + it.travelRestTime + it.backTravelTime + restHours.hoursToMillis,
             ChronoUnit.MILLIS
         )
-    }   // Выбираем тех, кто в рейсе или на отдыхе после рейса
-    .map { it.driverId }    // Мапим в список их Id
+    }
+    .map { it.driverId }
 
-/*
+/**
  * Метод для выборки из списка выезда поездов машинистов (в определенное время) и возврат списка Id тех машинистов,
  * которые были прошлую ночь в рейсе и попадают в ночь в этом выезде. Т.е. списка тех кого нельзя ставить на новый выезд в
  * определенное время.
@@ -92,21 +90,22 @@ fun getDriversIdsWhoWorkSecondNight(
     }
 }
 
+/**
+ * Returns collection of eligible drivers
+ */
 fun List<Driver>.getFreeDriversForTrainRun(trainRunList: List<TrainRun>, trainRun: TrainRun) =
-    this // Берём список машинистов
-        // Отсеиваем тех, кто не имеет доступа к этому поезду
+    this
         .filter { trainRun.trainId in it.accessTrainsId }
-        // Отсеиваем тех кто занят или на отдыхе после выезда
         .filter { it.id !in getBusyOrRestDriversIdsOnTime(trainRunList, trainRun.startTime) }
 
-/*
- * Метод для заполнения списка выезда поездов машинистами из списка машинистов по алгоритму
+/**
+ * Main algorithm to assign drivers automatically
  */
 fun List<TrainRun>.fillTrainRunListWithDrivers(drivers: List<Driver>): List<TrainRun> {
-    this.forEach { trainRun ->  // Для каждого выезда поезда
-        if (trainRun.driverId == 0) {   // Если машинист не назначен
+    this.forEach { trainRun ->  // for every train
+        if (trainRun.driverId == 0) {   // if driver wasn't busy
             trainRun.driverId = drivers
-                // Берем список свободных машинистов на данное направление
+                // get eligible drivers
                 .getFreeDriversForTrainRun(this, trainRun)
                 .filter {
                     if (secondNightWorkBan) {
@@ -114,13 +113,16 @@ fun List<TrainRun>.fillTrainRunListWithDrivers(drivers: List<Driver>): List<Trai
                     } else {
                         true
                     }
-                } // Отсеиваем по условию работы двух ночей подряд
-                // Из оставшихся выбираем того машиниста, у которого меньше всего отработано часов
+                }
+                /*
+                 * Taking two nights rule into account,
+                 * choosing the driver who has had the least working shifts this month
+                 */
                 .minByOrNull { it.totalTime }?.id ?: 0
-            if (trainRun.driverId != 0) { // Если машинист найден
+            if (trainRun.driverId != 0) {   // if driver found
                 drivers.find { it.id == trainRun.driverId }?.let { driver ->
                     trainRun.driverName = driver.FIO
-                    // Рассчитываем рабочее время в поездке
+                    // calculate required time for a shift
                     val workTime = trainRun.travelTime + trainRun.backTravelTime
                     driver.totalTime = driver.totalTime.plus(workTime)
                     val travelEndTime = trainRun.startTime.plus(
@@ -130,9 +132,9 @@ fun List<TrainRun>.fillTrainRunListWithDrivers(drivers: List<Driver>): List<Trai
                     if (LocalDateTime.now() > travelEndTime) {
                         driver.workedTime = driver.workedTime.plus(workTime)
                     }
-                } //  то заполняем поля выезда и
+                }
             } else {
-                // Вернуть сообщение, что не хватает машинистов для закрытия всех выездов
+                // todo return a message that there's not enough drivers to fill the shifts completely
             }
         }
     }
