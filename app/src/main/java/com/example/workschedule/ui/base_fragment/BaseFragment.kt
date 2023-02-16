@@ -1,4 +1,4 @@
-package com.example.workschedule.ui.base
+package com.example.workschedule.ui.base_fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -3,7 +3,6 @@ package com.example.workschedule.ui.main
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Lifecycle
@@ -12,7 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.workschedule.R
 import com.example.workschedule.databinding.FragmentMainBinding
-import com.example.workschedule.ui.base.BaseFragment
+import com.example.workschedule.ui.base_fragment.BaseFragment
 import com.example.workschedule.ui.trainrun_edit.TrainRunEditFragment.Companion.TRAIN_RUN_ID
 import com.google.android.material.button.MaterialButton
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -27,7 +26,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
         buttonNewRoute = (activity as AppCompatActivity).findViewById(R.id.toolbar_add_new_route)
         super.onViewCreated(view, savedInstanceState)
         registerForContextMenu(binding.mainFragmentRecyclerView)
-//        binding.mainFragmentRecyclerView.getLayoutManager()?.scrollToPosition(15)
     }
 
     override fun onStart() {
@@ -53,11 +51,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
                 .flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
                 .collect {
                     adapter.submitList(it)
-                    if (it.isNotEmpty()) {
-                        Toast.makeText(
-                            activity, getString(R.string.mainTableFilled), Toast.LENGTH_LONG
-                        ).show()
-                    }
                 }
         }
         mainFragmentViewModel.getTrainsRunList()

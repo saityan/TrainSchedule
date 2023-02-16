@@ -52,4 +52,3 @@ class SchedulersViewModel(
         return listHorizontalRVModel
     }
 }
-

@@ -1,11 +1,8 @@
 package com.example.workschedule.ui.train_edit
 
 import android.os.Bundle
-import android.view.View
-import android.widget.EditText
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -13,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.workschedule.R
 import com.example.workschedule.databinding.FragmentTrainEditBinding
 import com.example.workschedule.domain.models.Train
-import com.example.workschedule.ui.base.BaseFragment
+import com.example.workschedule.ui.base_fragment.BaseFragment
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class TrainEditFragment :

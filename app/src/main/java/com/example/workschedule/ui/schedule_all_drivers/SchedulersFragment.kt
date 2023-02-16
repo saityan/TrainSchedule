@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.example.workschedule.databinding.FragmentScheduleAllDriversBinding
-import com.example.workschedule.ui.base.BaseFragment
+import com.example.workschedule.ui.base_fragment.BaseFragment
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import org.koin.android.viewmodel.ext.android.viewModel
 

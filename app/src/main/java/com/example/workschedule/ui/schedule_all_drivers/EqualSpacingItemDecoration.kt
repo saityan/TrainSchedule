@@ -27,7 +27,7 @@ class EqualSpacingItemDecoration(
         layoutManager: RecyclerView.LayoutManager?,
         position: Int,
         itemCount: Int
-    ) { // Resolve display mode automatically
+    ) {
         if (displayMode == -1) {
             displayMode = resolveDisplayMode(layoutManager)
         }
@@ -65,5 +65,4 @@ class EqualSpacingItemDecoration(
         private const val VERTICAL = 1
         private const val GRID = 2
     }
-
 }

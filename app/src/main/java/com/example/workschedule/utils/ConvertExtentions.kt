@@ -10,10 +10,12 @@ import com.example.workschedule.domain.models.TrainRun
 import java.time.LocalDateTime
 import java.util.concurrent.TimeUnit
 
-val Int.hoursToMillis: Long // Экстеншн для перевода интового значения часов в millis
+// Экстеншн для перевода интового значения часов в millis
+val Int.hoursToMillis: Long
     get() = TimeUnit.HOURS.toMillis(this.toLong())
 
-val Int.minutesToMillis: Long // Экстеншн для перевода интового значения минут в millis
+// Экстеншн для перевода интового значения минут в millis
+val Int.minutesToMillis: Long
     get() = TimeUnit.MINUTES.toMillis(this.toLong())
 
 // Экстеншн для перевода рабочего времени millis в строку вывода HH:mm
@@ -35,7 +37,8 @@ val Long.toHoursTimeString: String
 val String.timeToMillis: Long
     get() = this.split(':')[0].toLong() * 60 * 60 * 1000 + this.split(':')[1].toLong() * 60 * 1000
 
-val TrainPeriodicity.toInt: Int // Экстеншн для перевода периодичности в целое число
+// Экстеншн для перевода периодичности в целое число
+val TrainPeriodicity.toInt: Int
     get() = when (this) {
         TrainPeriodicity.SINGLE -> 0
         TrainPeriodicity.ON_ODD -> 1
@@ -43,7 +46,8 @@ val TrainPeriodicity.toInt: Int // Экстеншн для перевода пе
         TrainPeriodicity.DAILY -> 3
     }
 
-val Int.toPeriodicity: TrainPeriodicity // Экстеншн для перевода целого числа в значение периодичности
+// Экстеншн для перевода целого числа в значение периодичности
+val Int.toPeriodicity: TrainPeriodicity
     get() = when (this) {
         1 -> TrainPeriodicity.ON_ODD
         2 -> TrainPeriodicity.ON_EVEN

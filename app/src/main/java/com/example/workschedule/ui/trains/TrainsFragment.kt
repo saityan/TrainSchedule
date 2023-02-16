@@ -11,7 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.workschedule.R
 import com.example.workschedule.databinding.FragmentTrainsBinding
-import com.example.workschedule.ui.base.BaseFragment
+import com.example.workschedule.ui.base_fragment.BaseFragment
 import com.example.workschedule.ui.train_edit.TrainEditFragment.Companion.TRAIN_ID
 import com.google.android.material.button.MaterialButton
 import org.koin.android.viewmodel.ext.android.viewModel

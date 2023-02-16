@@ -12,7 +12,7 @@ import androidx.navigation.findNavController
 import com.example.workschedule.R
 import com.example.workschedule.databinding.FragmentDriverEditBinding
 import com.example.workschedule.domain.models.Driver
-import com.example.workschedule.ui.base.BaseFragment
+import com.example.workschedule.ui.base_fragment.BaseFragment
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DriverEditFragment :

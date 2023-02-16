@@ -18,7 +18,7 @@ import com.example.workschedule.domain.models.Driver
 import com.example.workschedule.domain.models.Train
 import com.example.workschedule.domain.models.TrainPeriodicity
 import com.example.workschedule.domain.models.TrainRun
-import com.example.workschedule.ui.base.BaseFragment
+import com.example.workschedule.ui.base_fragment.BaseFragment
 import com.example.workschedule.utils.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.time.LocalDateTime
