@@ -1,4 +1,4 @@
-package com.example.workschedule.ui.schedule_all_drivers.adapters_model
+package com.example.workschedule.ui.joint_schedule.adapters_model
 
 data class HorizontalRVModel(
     val data: String,

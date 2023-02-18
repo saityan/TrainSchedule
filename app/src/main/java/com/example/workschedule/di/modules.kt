@@ -13,7 +13,7 @@ import com.example.workschedule.domain.usecases.trainrun.*
 import com.example.workschedule.ui.driver_edit.DriverEditViewModel
 import com.example.workschedule.ui.drivers.DriversViewModel
 import com.example.workschedule.ui.main.MainFragmentViewModel
-import com.example.workschedule.ui.schedule_all_drivers.SchedulersViewModel
+import com.example.workschedule.ui.joint_schedule.SchedulersViewModel
 import com.example.workschedule.ui.trainrun_edit.TrainRunEditViewModel
 import com.example.workschedule.ui.train_edit.TrainEditViewModel
 import com.example.workschedule.ui.trains.TrainsViewModel

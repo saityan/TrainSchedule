@@ -1,4 +1,4 @@
-package com.example.workschedule.ui.schedule_all_drivers
+package com.example.workschedule.ui.joint_schedule
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.workschedule.databinding.HorizontalItemBinding
-import com.example.workschedule.ui.schedule_all_drivers.adapters_model.HorizontalRVModel
+import com.example.workschedule.ui.joint_schedule.adapters_model.HorizontalRVModel
 
 class HorizontalRVAdapter :
     ListAdapter<HorizontalRVModel, HorizontalRVAdapter.ItemViewHolder>(HorizontalCallback) {

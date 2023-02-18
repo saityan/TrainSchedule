@@ -1,4 +1,4 @@
-package com.example.workschedule.ui.schedule_all_drivers
+package com.example.workschedule.ui.joint_schedule
 
 import android.graphics.Rect
 import android.view.View

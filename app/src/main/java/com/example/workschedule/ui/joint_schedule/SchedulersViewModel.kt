@@ -1,11 +1,11 @@
-package com.example.workschedule.ui.schedule_all_drivers
+package com.example.workschedule.ui.joint_schedule
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.workschedule.domain.usecases.driver.GetAllDriversListUseCase
 import com.example.workschedule.domain.usecases.trainrun.GetTrainRunListForDriverUseCase
-import com.example.workschedule.ui.schedule_all_drivers.adapters_model.HorizontalRVModel
-import com.example.workschedule.ui.schedule_all_drivers.adapters_model.VerticalRVModel
+import com.example.workschedule.ui.joint_schedule.adapters_model.HorizontalRVModel
+import com.example.workschedule.ui.joint_schedule.adapters_model.VerticalRVModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
