@@ -27,3 +27,6 @@ The app doesn't log the schedule state at any given time. Instead, it always tri
 
 ## SDK restrictions
 Minimum SDK is 26.
+
+## Localizations
+- RU

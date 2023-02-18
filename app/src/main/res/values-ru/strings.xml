@@ -13,7 +13,7 @@
     <string name="user_name_label">Имя</string>
     <string name="user_patronymic">Отчество</string>
     <string name="menu_driver_edit">Машинист</string>
-    <string name="menu_schedule_all_drivers">График всех машинистов</string>
+    <string name="menu_schedule_all_drivers">Общий график</string>
     <string name="menu_route_edit">Создать выезд</string>
     <string name="menu_edit_set">Установить</string>
 
