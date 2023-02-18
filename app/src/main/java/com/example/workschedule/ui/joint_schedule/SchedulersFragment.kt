@@ -3,13 +3,13 @@ package com.example.workschedule.ui.joint_schedule
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
-import com.example.workschedule.databinding.FragmentScheduleAllDriversBinding
+import com.example.workschedule.databinding.FragmentJointScheduleBinding
 import com.example.workschedule.ui.base_fragment.BaseFragment
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class SchedulersFragment :
-    BaseFragment<FragmentScheduleAllDriversBinding>(FragmentScheduleAllDriversBinding::inflate) {
+    BaseFragment<FragmentJointScheduleBinding>(FragmentJointScheduleBinding::inflate) {
 
     private val schedulersViewModel: SchedulersViewModel by viewModel()
     private val sectionAdapter = SectionedRecyclerViewAdapter()
