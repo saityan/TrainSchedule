@@ -45,6 +45,7 @@
                 tools:text="Summerwoods A. А." />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:visibility="gone"
                 android:id="@+id/driversFragmentRecyclerItemHours"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
