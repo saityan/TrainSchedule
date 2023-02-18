@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        initNavAnimations(navView, drawerLayout)
+        initNavGraph(navView, drawerLayout)
     }
 
     private fun actionWithDatabase(
@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun initNavAnimations(
+    private fun initNavGraph(
         navView: NavigationView,
         drawerLayout: DrawerLayout
     ) {
@@ -103,6 +103,7 @@ class MainActivity : AppCompatActivity() {
             if (navController.currentDestination?.id != it.itemId) {
                 drawerLayout.close()
                 when (it.itemId) {
+
                     R.id.nav_main -> {
                         when (navController.currentDestination?.id) {
                             R.id.nav_drivers ->
@@ -112,7 +113,12 @@ class MainActivity : AppCompatActivity() {
                             R.id.nav_trains ->
                                 navController.navigate(R.id.action_nav_trains_to_nav_main)
                         }
+                        when (navController.currentDestination?.id) {
+                            R.id.nav_joint_schedule ->
+                                navController.navigate(R.id.action_nav_joint_to_nav_main)
+                        }
                     }
+
                     R.id.nav_drivers -> {
                         when (navController.currentDestination?.id) {
                             R.id.nav_main ->
@@ -122,7 +128,12 @@ class MainActivity : AppCompatActivity() {
                             R.id.nav_trains ->
                                 navController.navigate(R.id.action_nav_trains_to_nav_drivers)
                         }
+                        when (navController.currentDestination?.id) {
+                            R.id.nav_joint_schedule ->
+                                navController.navigate(R.id.action_nav_joint_to_nav_drivers)
+                        }
                     }
+
                     R.id.nav_trains -> {
                         when (navController.currentDestination?.id) {
                             R.id.nav_main ->
@@ -132,9 +143,25 @@ class MainActivity : AppCompatActivity() {
                             R.id.nav_drivers ->
                                 navController.navigate(R.id.action_nav_drivers_to_nav_trains)
                         }
+                        when (navController.currentDestination?.id) {
+                            R.id.nav_joint_schedule ->
+                                navController.navigate(R.id.action_nav_joint_to_nav_trains)
+                        }
                     }
-                    R.id.nav_schedule_all_drivers -> {
-                        navController.navigate(R.id.action_nav_to_schedule_all_drivers)
+
+                    R.id.nav_joint_schedule -> {
+                        when (navController.currentDestination?.id) {
+                            R.id.nav_main ->
+                                navController.navigate(R.id.action_nav_main_to_joint_schedule)
+                        }
+                        when (navController.currentDestination?.id) {
+                            R.id.nav_trains ->
+                                navController.navigate(R.id.action_nav_trains_to_joint_schedule)
+                        }
+                        when (navController.currentDestination?.id) {
+                            R.id.nav_drivers ->
+                                navController.navigate(R.id.action_nav_drivers_to_joint_schedule)
+                        }
                     }
                 }
                 true
