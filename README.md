@@ -15,5 +15,15 @@ A working schedule for a month, with constraints (here's some of them):
 - a driver can't do night shifts two times in a row;
 - if a driver became unavailable, the algorithm should keep schedule changes to a minimum;
 
+## Technology and structure
+- MVVM
+- Koin
+- Single Activity
+- View Binding
+- Material design
+
 ## Important note
 The app doesn't log the schedule state at any given time. Instead, it always tries to keep the schedule as optimal as possible, since the purpose is to save an operator the headache to arrange everything manually. A separate log should always be used for the past routes documenting.
+
+## SDK restrictions
+Minimum SDK is 26.
