@@ -90,7 +90,19 @@ class DriverEditFragment :
             validPersonnelNumber && validSurname && validName && validPatronymic
     }
 
-    private fun isAdmittanceValid(): Boolean = adapter.getAccessList().isNotEmpty()
+    private fun isAdmittanceValid(): Boolean {
+        val driverDirectionsList = adapter.getAccessList()
+        val trainsDirectionsList = driverEditViewModel.trains.value
+        if (driverDirectionsList.isNotEmpty()) {
+            for (id in driverDirectionsList) {
+                for (train in trainsDirectionsList) {
+                    if (id == train.id)
+                        return true
+                }
+            }
+        }
+        return false
+    }
 
     override fun initObservers() {
         driverId?.let {
