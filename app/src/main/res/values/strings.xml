@@ -54,6 +54,7 @@
     <!--    Fragments   -->
     <string name="driverEditDataInputIncorrect">Enter correct data</string>
     <string name="driverEditDataInputSuccess">Driver added successfully</string>
+    <string name="driverAdmittanceCheckFailed">Save failed: at least one direction should be assigned to a driver</string>
     <string name="mainTableFilled">Routes table has been filled with drivers data</string>
     <string name="trainEditTrainAdded">Train added successfully</string>
 

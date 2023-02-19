@@ -57,22 +57,28 @@ class DriverEditFragment :
             checkSaveButtonEnable()
         }
         driverEditFragmentSaveButton.setOnClickListener {
-            driverEditViewModel.saveDriver(
-                Driver(
-                    driverId ?: 0,
-                    driverEditFragmentPersonnelNumber.text.toString().toInt(),
-                    driverEditFragmentSurname.text.toString(),
-                    driverEditFragmentName.text.toString(),
-                    driverEditFragmentPatronymic.text.toString(),
-                    0,
-                    0,
-                    adapter.getAccessList()
+            if (isAdmittanceValid()) {
+                driverEditViewModel.saveDriver(
+                    Driver(
+                        driverId ?: 0,
+                        driverEditFragmentPersonnelNumber.text.toString().toInt(),
+                        driverEditFragmentSurname.text.toString(),
+                        driverEditFragmentName.text.toString(),
+                        driverEditFragmentPatronymic.text.toString(),
+                        0,
+                        0,
+                        adapter.getAccessList()
+                    )
                 )
-            )
-            Toast.makeText(
-                activity, getString(R.string.driverEditDataInputSuccess), Toast.LENGTH_LONG
-            ).show()
-            it.findNavController().navigateUp()
+                Toast.makeText(
+                    activity, getString(R.string.driverEditDataInputSuccess), Toast.LENGTH_SHORT
+                ).show()
+                it.findNavController().navigateUp()
+            } else {
+                Toast.makeText(
+                    activity, getString(R.string.driverAdmittanceCheckFailed), Toast.LENGTH_LONG
+                ).show()
+            }
         }
         driverEditFragmentCancelButton.setOnClickListener {
             it.findNavController().navigateUp()
@@ -83,6 +89,8 @@ class DriverEditFragment :
         binding.driverEditFragmentSaveButton.isEnabled =
             validPersonnelNumber && validSurname && validName && validPatronymic
     }
+
+    private fun isAdmittanceValid(): Boolean = adapter.getAccessList().isNotEmpty()
 
     override fun initObservers() {
         driverId?.let {
