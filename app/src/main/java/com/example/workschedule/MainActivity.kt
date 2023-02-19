@@ -17,6 +17,7 @@ import com.example.workschedule.data.database.ScheduleDataBase
 import com.example.workschedule.databinding.ActivityMainBinding
 import com.example.workschedule.domain.clearDatabase
 import com.example.workschedule.domain.saveDemonstrationDataToDB
+import com.example.workschedule.utils.initNavGraph
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -77,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        initNavGraph(navView, drawerLayout)
+        initNavGraph(navView, drawerLayout, navController)
     }
 
     private fun actionWithDatabase(
@@ -93,80 +94,6 @@ class MainActivity : AppCompatActivity() {
             ).show()
             navController.popBackStack(R.id.nav_main, true)
             navController.navigate(R.id.nav_main)
-        }
-    }
-
-    private fun initNavGraph(
-        navView: NavigationView,
-        drawerLayout: DrawerLayout
-    ) {
-        navView.setNavigationItemSelectedListener {
-            if (navController.currentDestination?.id != it.itemId) {
-                drawerLayout.close()
-                when (it.itemId) {
-
-                    R.id.nav_main -> {
-                        when (navController.currentDestination?.id) {
-                            R.id.nav_drivers ->
-                                navController.navigate(R.id.action_nav_drivers_to_nav_main)
-                        }
-                        when (navController.currentDestination?.id) {
-                            R.id.nav_trains ->
-                                navController.navigate(R.id.action_nav_trains_to_nav_main)
-                        }
-                        when (navController.currentDestination?.id) {
-                            R.id.nav_joint_schedule ->
-                                navController.navigate(R.id.action_nav_joint_to_nav_main)
-                        }
-                    }
-
-                    R.id.nav_drivers -> {
-                        when (navController.currentDestination?.id) {
-                            R.id.nav_main ->
-                                navController.navigate(R.id.action_nav_main_to_nav_drivers)
-                        }
-                        when (navController.currentDestination?.id) {
-                            R.id.nav_trains ->
-                                navController.navigate(R.id.action_nav_trains_to_nav_drivers)
-                        }
-                        when (navController.currentDestination?.id) {
-                            R.id.nav_joint_schedule ->
-                                navController.navigate(R.id.action_nav_joint_to_nav_drivers)
-                        }
-                    }
-
-                    R.id.nav_trains -> {
-                        when (navController.currentDestination?.id) {
-                            R.id.nav_main ->
-                                navController.navigate(R.id.action_nav_main_to_nav_trains)
-                        }
-                        when (navController.currentDestination?.id) {
-                            R.id.nav_drivers ->
-                                navController.navigate(R.id.action_nav_drivers_to_nav_trains)
-                        }
-                        when (navController.currentDestination?.id) {
-                            R.id.nav_joint_schedule ->
-                                navController.navigate(R.id.action_nav_joint_to_nav_trains)
-                        }
-                    }
-
-                    R.id.nav_joint_schedule -> {
-                        when (navController.currentDestination?.id) {
-                            R.id.nav_main ->
-                                navController.navigate(R.id.action_nav_main_to_joint_schedule)
-                        }
-                        when (navController.currentDestination?.id) {
-                            R.id.nav_trains ->
-                                navController.navigate(R.id.action_nav_trains_to_joint_schedule)
-                        }
-                        when (navController.currentDestination?.id) {
-                            R.id.nav_drivers ->
-                                navController.navigate(R.id.action_nav_drivers_to_joint_schedule)
-                        }
-                    }
-                }
-                true
-            } else false
         }
     }
 }
