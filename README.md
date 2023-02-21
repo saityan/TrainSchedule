@@ -25,6 +25,10 @@ A working schedule for a month, with constraints (here's some of them):
 ## Important note
 The app doesn't log the schedule state at any given time. Instead, it always tries to keep the schedule as optimal as possible, since the purpose is to save an operator the headache to arrange everything manually. A separate log should always be used for the past routes documenting.
 
+## Driver's ID
+Note that driver's id isn't the same as the primary driver's key in the database.
+Driver's id is needed for external documenting and in general does not equal the primary key.
+
 ## SDK restrictions
 Minimum SDK is 26.
 
