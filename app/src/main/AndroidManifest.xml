@@ -14,7 +14,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.WorkSchedule.NoActionBar"
+            android:theme="@style/Theme.WorkSchedule.Splash"
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="nosensor">
             <intent-filter>
