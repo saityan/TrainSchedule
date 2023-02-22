@@ -3,7 +3,9 @@ This app was created as a side project to help train drivers with their schedule
 
 ## How does it work
 The app uses specific algorithm to create shift schedule for a station.
-
+##
+![interface_screenshot_1](https://user-images.githubusercontent.com/20212022/220656652-31829777-9dc1-4748-b89e-eca2f95315b0.png)
+##
 ## Input
 For a working schedule, the user needs to manually add drivers and routes his station has.
 There's a demonstration data, which can be created via "Fill DB for demonstration" menu option.
