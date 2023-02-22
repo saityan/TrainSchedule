@@ -1,4 +1,4 @@
-# Goal
+# Schedule helper
 This app was created as a side project to help train drivers with their schedule.
 
 ## How does it work
