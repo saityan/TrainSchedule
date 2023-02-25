@@ -3,7 +3,7 @@ This app was created as a side project to help train drivers with their schedule
 The original project, which has cyryllic showcase, can be seen [here](https://github.com/Puzzle-f/WorkSchedule).
 
 ## How does it work
-The app uses specific algorithm to create shift schedule for a station.
+The app uses specific algorithm to create a shift schedule for a station.
 ## How does it look
 
 ![img](https://user-images.githubusercontent.com/20212022/220686406-e52b1d5c-35a4-4a7f-b403-be4925411dc6.png)
