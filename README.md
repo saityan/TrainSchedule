@@ -1,5 +1,6 @@
 # Schedule helper
 This app was created as a side project to help train drivers with their schedule.
+The original project can be seen [here](https://github.com/Puzzle-f/WorkSchedule).
 
 ## How does it work
 The app uses specific algorithm to create shift schedule for a station.
