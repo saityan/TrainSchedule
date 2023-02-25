@@ -33,7 +33,7 @@ Note that driver's id isn't the same as the primary driver's key in the database
 Driver's id is needed for external documenting and in general does not equal the primary key.
 
 ## SDK restrictions
-Minimum SDK is 26.
+Minimum SDK is 28. Target SDK is 31.
 
 ## Localizations
 - RU
